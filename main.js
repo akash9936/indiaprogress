@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'Connection': 'keep-alive',
             // ... (other headers)
         });
+        
 
         // Make the API request using the fetch API
         fetch(apiUrl, { headers })
