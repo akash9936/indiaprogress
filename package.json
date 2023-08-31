@@ -1,0 +1,15 @@
+{
+  "name": "indiaprogress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git clone https://akash993620@bitbucket.org/privatev1/indiaprogress.git"
+  },
+  "author": "Akash Singh",
+  "license": "ISC"
+}
