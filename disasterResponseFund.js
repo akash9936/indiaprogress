@@ -1,14 +1,16 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const cors = require('cors');
-
+const dotenv = require('dotenv');
+const { get } = require('express/lib/response');
+dotenv.config();
 // Rest of your code remains the same
 
 const app = express();
 const port = 3000;
 
 // Set up your API endpoint URL
-const apiUrl = 'https://api.data.gov.in/resource/6a0cfec4-df79-4c1e-90ba-b8eecb495c4d?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json';
+const apiUrl = process.env.GOVT_URL;
 
 // Serve your static HTML and JavaScript files
 app.use(express.static('public'));
