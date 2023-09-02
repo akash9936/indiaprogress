@@ -19,15 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Function to display project data in the UI
+    // Function to display project data in the UI as a bar chart
     function displayProjectData(data, targetElement) {
-        // Clear previous data
         targetElement.innerHTML = '';
 
-        // Create a new <pre> element to display the JSON data
         const preElement = document.createElement('pre');
         preElement.textContent = JSON.stringify(data, null, 2);
 
         // Append the <pre> element to the target
         targetElement.appendChild(preElement);
+
     }
 });

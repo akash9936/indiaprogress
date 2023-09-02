@@ -7,7 +7,7 @@
     "scripts": {
         "test": "npm run test",
         "build": "npm run main.js",
-        "start": "node -r esm mainCode.js",
+        "start": "node -r esm disasterResponseFund.js",
         "debug": "node --inspect-brk main.js"
     },
     "repository": {
