@@ -5,7 +5,7 @@
         "type": "node",
         "request": "launch",
         "name": "Debug Node.js",
-        "program": "/Users/akashsingh/Downloads/propelld/Codes/IndiaProgress/mainCode.js",
+        "program": "/Users/akashsingh/Downloads/propelld/Codes/IndiaProgress/disasterResponseFund.js",
         "skipFiles": ["<node_internals>/**"]
       }
     ]
