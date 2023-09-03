@@ -6,9 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     projectButton.addEventListener('click', () => {
         // Make an HTTP GET request to your Node.js server
+     //   const baseUrl= process.env.NODE_ENV=="  " ? "" : 'http://localhost:3000/getProjectData';
         fetch('http://localhost:3000/getProjectData') // Assuming this route is defined in your server.js
             .then(response => response.json())
-            .then(data => {
+            .then(data => { 
                 // Handle the response data
                 displayProjectData(data, projectDataDiv);
             })
@@ -18,19 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     });
 
-    projectButton.addEventListener('click', () => {
-        // Make an HTTP GET request to your Node.js server
-        fetch('http://localhost:3000/getProjectDatas') // Assuming this route is defined in your server.js
-            .then(response => response.json())
-            .then(data => {
-                // Handle the response data
-                displayProjectData(data, projectDataDiv);
-            })
-            .catch(error => {
-                // Handle errors
-                console.error('Error:', error);
-            });
-    });
 
     // Function to display project data in the UI
     // Function to display project data in the UI as a bar chart
