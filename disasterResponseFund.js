@@ -6,10 +6,11 @@ dotenv.config();
 // Rest of your code remains the same
 
 const app = express();
-const port = 3000;
+const port = process.env.DEV_API_URL || 3000;
 
 // Set up your API endpoint URL
-const apiUrl = process.env.GOVT_URL;
+const govtUrl = process.env.GOVT_URL;
+ //const baseUrl= process.env.NODE_ENV=="development" ? process.env.DEV_API_URL : process.env.DEV_API_URL;
 
 // Serve your static HTML and JavaScript files
 app.use(express.static('public'));
@@ -26,7 +27,7 @@ app.get('/getProjectData', async (req, res) => {
         };
 
         // Make the API request using the fetch API
-        const response = await fetch(apiUrl, { headers });
+        const response = await fetch(govtUrl, { headers });
         
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
