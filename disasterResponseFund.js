@@ -6,8 +6,8 @@ dotenv.config();
 // Rest of your code remains the same
 
 const app = express();
-//const port = process.env.DEV_API_URL || 3000;
-const port = 3000;
+const port = process.env.DEV_API_URL || 3000;
+
 // Set up your API endpoint URL
 const govtUrl = process.env.GOVT_URL;
  //const baseUrl= process.env.NODE_ENV=="development" ? process.env.DEV_API_URL : process.env.DEV_API_URL;
