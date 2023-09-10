@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     });
 
-
     // Function to display project data in the UI
     // Function to display project data in the UI as a bar chart
     function displayProjectData(data, targetElement) {
