@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 // Handle the response data
                 displayProjectDataV2(data, dataTableBody);
-  //              displayProjectData(data, projectDataDiv);
             })
             .catch(error => {
                 // Handle errors
@@ -18,16 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     });
 
-    // Function to display project data in the UI
-    // function displayProjectData(data, targetElement) {
-    //     targetElement.innerHTML = '';
-
-    //     const preElement = document.createElement('pre');
-    //     preElement.textContent = JSON.stringify(data, null, 2);
-
-    //     // Append the <pre> element to the target
-    //     targetElement.appendChild(preElement);
-    // }
 
     function displayProjectDataV2(data, dataTableBody) {
         // Clear the existing table rows
