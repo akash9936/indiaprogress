@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +9,22 @@
     <link rel="stylesheet" href="/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <!-- Your HTML content here -->
 
-    <button id="projectButton">State-wise Allocation and Release of Funds under State Disaster Response Fund during 2022-23</button>
-   
-    <div id="projectData">
-        <canvas id="projectChart" width="800" height="400"></canvas>
+    <button id="projectButton">State-wise Allocation and Release of Funds under State Disaster Response Fund during
+        2022-23</button>
+
+    <div id="projectData"></div>
+    <div id="dataDisplay">
+        <table id="dataTable" border="1">
+            <tbody></tbody>
+        </table>
     </div>
     <script type="module" src="/main.js"></script>
-    <script type="module" src="/disasterResponseFund.js"></script> 
+    <script type="module" src="/disasterResponseFund.js"></script>
 
 </body>
+
 </html>
