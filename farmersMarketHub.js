@@ -6,10 +6,10 @@ dotenv.config();
 // Rest of your code remains the same
 
 const app = express();
-const port = process.env.DEV_API_URL || 4000;
-
+//const port = process.env.DEV_API_URL || 3000;
+const port=2000;
 // Set up your API endpoint URL
-const govtUrl = process.env.GOVT_URL;
+const Url = process.env.farmersMarketHub_URL;
  //const baseUrl= process.env.NODE_ENV=="development" ? process.env.DEV_API_URL : process.env.DEV_API_URL;
 
 // Serve your static HTML and JavaScript files
@@ -17,7 +17,7 @@ app.use(express.static('public'));
 app.use(cors());
 
 // Define a route to handle the button click and fetch data
-app.get('/getProjectData', async (req, res) => {
+app.get('/farmersMarketHub', async (req, res) => {
     try {
         // Set up the headers for the request
         const headers = {
@@ -27,7 +27,7 @@ app.get('/getProjectData', async (req, res) => {
         };
 
         // Make the API request using the fetch API
-        const response = await fetch(govtUrl, { headers });
+        const response = await fetch(Url, { headers });
         
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);

@@ -2,14 +2,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectButton = document.getElementById('projectButton');
     const projectDataDiv = document.getElementById('projectData');
     const dataTableBody = document.querySelector('#dataTable tbody');
+        const FarmersMarketHubButton = document.getElementById('farmersMarketHubButton');
+        const FarmersMarketHubDataDiv = document.getElementById('farmersMarketHubData');
+        const farmersMarketHubdataTableBody = document.querySelector('#farmersMarketHubdataTable tbody');
 
     projectButton.addEventListener('click', () => {
         // Make an HTTP GET request to your Node.js server
-        fetch('http://localhost:3000/getProjectData') // Assuming this route is defined in your server.js
+        fetch('http://localhost:4000/getProjectData') // Assuming this route is defined in your server.js
             .then(response => response.json())
             .then(data => {
                 // Handle the response data
                 displayProjectDataV2(data, dataTableBody);
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('Error:', error);
+            });
+    });
+
+    FarmersMarketHubButton.addEventListener('click', () => {
+        // Make an HTTP GET request to your Node.js server
+        fetch('http://localhost:2000/farmersMarketHub') // Assuming this route is defined in your server.js
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response data
+                displayProjectDataV2(data, farmersMarketHubdataTableBody);
             })
             .catch(error => {
                 // Handle errors
