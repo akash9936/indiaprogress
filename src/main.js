@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const FarmersMarketHubButton = document.getElementById('farmersMarketHubButton');
         const FarmersMarketHubDataDiv = document.getElementById('farmersMarketHubData');
         const farmersMarketHubdataTableBody = document.querySelector('#farmersMarketHubdataTable tbody');
-
+        const farmersMarketHubfilterButton = document.getElementById('farmersMarketHubfilterButton');
     projectButton.addEventListener('click', () => {
         // Make an HTTP GET request to your Node.js server
         fetch('http://localhost:4000/getProjectData') // Assuming this route is defined in your server.js
@@ -23,6 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
     FarmersMarketHubButton.addEventListener('click', () => {
         // Make an HTTP GET request to your Node.js server
         fetch('http://localhost:2000/farmersMarketHub') // Assuming this route is defined in your server.js
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response data
+                displayProjectDataV2(data, farmersMarketHubdataTableBody);
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('Error:', error);
+            });
+    });
+    farmersMarketHubfilterButton.addEventListener('click', () => {
+        // Make an HTTP GET request to your Node.js server
+        const stateFilter = document.getElementById('stateFilter').value;
+        const districtFilter = document.getElementById('districtFilter').value;
+   
+        fetch(`http://localhost:2000/farmersMarketHub?state=${stateFilter}&district=${districtFilter}`) // Assuming this route is defined in your server.js
             .then(response => response.json())
             .then(data => {
                 // Handle the response data

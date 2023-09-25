@@ -19,6 +19,19 @@ app.use(cors());
 // Define a route to handle the button click and fetch data
 app.get('/farmersMarketHub', async (req, res) => {
     try {
+
+        const stateFilter = req?.query?.state;
+        const districtFilter = req?.query?.district;
+        let updatedUrl=null
+        if(stateFilter){
+            updatedUrl = `${Url}&filters%5Bstate%5D=${stateFilter}`;
+        }
+        if(districtFilter){
+            updatedUrl = `${Url}&filters%5Bdistrict%5D=${String(districtFilter)}`;
+        }
+        if(updatedUrl===null){
+            updatedUrl=Url
+        }
         // Set up the headers for the request
         const headers = {
             'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8',
@@ -27,12 +40,12 @@ app.get('/farmersMarketHub', async (req, res) => {
         };
 
         // Make the API request using the fetch API
-        const response = await fetch(Url, { headers });
+        const response = await fetch(updatedUrl, { headers });
         
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-
+   //     const data = JSON.parse(data);
         const data = await response.json();
 
         // Send the API response data as JSON
