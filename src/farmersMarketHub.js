@@ -7,10 +7,10 @@ dotenv.config();
 
 const app = express();
 //const port = process.env.DEV_API_URL || 3000;
-const port=2000;
+const port = 2000;
 // Set up your API endpoint URL
-const Url = process.env.farmersMarketHub_URL;
- //const baseUrl= process.env.NODE_ENV=="development" ? process.env.DEV_API_URL : process.env.DEV_API_URL;
+let Url = process.env.farmersMarketHub_URL;
+//const baseUrl= process.env.NODE_ENV=="development" ? process.env.DEV_API_URL : process.env.DEV_API_URL;
 
 // Serve your static HTML and JavaScript files
 app.use(express.static('public'));
@@ -22,16 +22,20 @@ app.get('/farmersMarketHub', async (req, res) => {
 
         const stateFilter = req?.query?.state;
         const districtFilter = req?.query?.district;
-        let updatedUrl=null
-        if(stateFilter){
-            updatedUrl = `${Url}&filters%5Bstate%5D=${stateFilter}`;
+        let updatedUrl = null
+        let page = parseInt(req.query.page) || 1;
+        // Current page number, default is 1
+        let pageSize = parseInt(req.query.pageSize) || 10;
+        let offset = (page - 1) * pageSize;
+      //  page = pageSize * 10; // Number of items per page, default is 10
+        updatedUrl = Url + `&offset=${offset}&limit=${pageSize}`;
+        if (stateFilter) {
+            updatedUrl = `${updatedUrl}&filters%5Bstate%5D=${stateFilter}`;
         }
-        if(districtFilter){
-            updatedUrl = `${Url}&filters%5Bdistrict%5D=${String(districtFilter)}`;
+        if (districtFilter) {
+            updatedUrl = `${updatedUrl}&filters%5Bdistrict%5D=${String(districtFilter)}`;
         }
-        if(updatedUrl===null){
-            updatedUrl=Url
-        }
+       
         // Set up the headers for the request
         const headers = {
             'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8',
@@ -41,11 +45,11 @@ app.get('/farmersMarketHub', async (req, res) => {
 
         // Make the API request using the fetch API
         const response = await fetch(updatedUrl, { headers });
-        
+
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-   //     const data = JSON.parse(data);
+        //     const data = JSON.parse(data);
         const data = await response.json();
 
         // Send the API response data as JSON

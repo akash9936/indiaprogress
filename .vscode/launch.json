@@ -5,11 +5,7 @@
         "type": "node",
         "request": "launch",
         "name": "Debug Node.js",
-<<<<<<< HEAD
         "program": "/Users/akashsingh/Downloads/propelld/Codes/IndiaProgress/src/farmersMarketHub.js",
-=======
-        "program": "/Users/akashsingh/Downloads/propelld/Codes/IndiaProgress/src/disasterResponseFund.js",
->>>>>>> 055b481df929c94d5d3d5a03739f1230822e8dfb
         "skipFiles": ["<node_internals>/**"]
       }
     ]
