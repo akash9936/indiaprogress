@@ -2,12 +2,12 @@
   "name": "indiaprogress",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/main.js",
+  "main": "./public/main.js",
   "type": "commonjs",
   "scripts": {
     "test": "npm run test",
     "start": "npm-run-all --parallel script1 script2",
-    "debug": "node --inspect-brk ./src/main.js",
+    "debug": "node --inspect-brk ./public/main.js",
     "script1": "NODE_ENV=development node -r esm ./src/farmersMarketHub.js",
     "script2": "NODE_ENV=development node -r esm ./src/disasterResponseFund.js"
   },
