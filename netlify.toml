@@ -1,0 +1,17 @@
+[build]
+command = "npm i"
+publish = "public"
+
+[dev]
+command = "npm start"
+publish = "public"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+[[redirects]]
+from = "/api/*"
+to = "/*"
+status = 200
