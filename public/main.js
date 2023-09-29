@@ -26,47 +26,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     FarmersMarketHubButton.addEventListener('click', () => {
-        // Make an HTTP GET request to your Node.js server
-        let stateFilter = document.getElementById('stateFilter').value;
-        let districtFilter = document.getElementById('districtFilter').value;
+        handleFarmersMarketHubButtonClick();
+    });
+
+    // Event listener for farmersMarketHubfilterButton
+    farmersMarketHubfilterButton.addEventListener('click', () => {
+        handleFarmersMarketHubButtonClick();
+    });
+
+    // Common code for both buttons (API call and data display)
+    function handleFarmersMarketHubButtonClick() {
+        const stateFilter = document.getElementById('stateFilter').value;
+        const districtFilter = document.getElementById('districtFilter').value;
         let apiUrl = `http://localhost:2000/farmersMarketHub?page=${currentPage}`;
+
         // Add stateFilter to the URL if it's provided
         if (stateFilter) {
             apiUrl += `&state=${stateFilter}`;
         }
+
         // Add districtFilter to the URL if it's provided
         if (districtFilter) {
             apiUrl += `&district=${districtFilter}`;
         }
-
-        //api call
-        fetch(`http://localhost:2000/farmersMarketHub?page=${currentPage}&state=${stateFilter}&district=${districtFilter}`) // Assuming this route is defined in your server.js
+        console.log('API URL:', apiUrl); 
+        // Handle the API call and data display
+        fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
-                // Handle the response data
                 displayProjectDataV2(data, farmersMarketHubdataTableBody);
             })
             .catch(error => {
-                // Handle errors
                 console.error('Error:', error);
             });
-    });
-    farmersMarketHubfilterButton.addEventListener('click', () => {
-        // Make an HTTP GET request to your Node.js server
-        const stateFilter = document.getElementById('stateFilter').value;
-        const districtFilter = document.getElementById('districtFilter').value;
+    }
 
-        fetch(`http://localhost:2000/farmersMarketHub?state=${stateFilter}&district=${districtFilter}`) // Assuming this route is defined in your server.js
-            .then(response => response.json())
-            .then(data => {
-                // Handle the response data
-                displayProjectDataV2(data, farmersMarketHubdataTableBody);
-            })
-            .catch(error => {
-                // Handle errors
-                console.error('Error:', error);
-            });
-    });
     // Next page button click event
     nextPageButton.addEventListener('click', () => {
         console.log('Next button clicked');
