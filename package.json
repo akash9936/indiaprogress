@@ -5,6 +5,7 @@
   "main": "./public/main.js",
   "type": "commonjs",
   "scripts": {
+    "build": "webpack --mode production",
     "test": "npm run test",
     "start": "npm-run-all --parallel script1 script2",
     "debug": "node --inspect-brk ./public/main.js",
