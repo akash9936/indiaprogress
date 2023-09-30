@@ -1,3 +1,6 @@
+//main URL: https://data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi
+
+
 const express = require('express');
 const fetch = require('node-fetch');
 const cors = require('cors');
