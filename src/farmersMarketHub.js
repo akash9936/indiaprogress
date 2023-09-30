@@ -22,6 +22,7 @@ app.get('/farmersMarketHub', async (req, res) => {
 
         const stateFilter = req?.query?.state;
         const districtFilter = req?.query?.district;
+        const commodityFilter = req?.query?.commodity;
         let updatedUrl = null
         let page = parseInt(req.query.page) || 1;
         // Current page number, default is 1
@@ -34,6 +35,9 @@ app.get('/farmersMarketHub', async (req, res) => {
         }
         if (districtFilter) {
             updatedUrl = `${updatedUrl}&filters%5Bdistrict%5D=${String(districtFilter)}`;
+        }
+        if (commodityFilter) {
+            updatedUrl = `${updatedUrl}&filters%5Bcommodity%5D=${String(commodityFilter)}`;
         }
        
         // Set up the headers for the request
