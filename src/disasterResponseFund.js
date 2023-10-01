@@ -16,7 +16,6 @@ const govtUrl = process.env.GOVT_URL;
  //const baseUrl= process.env.NODE_ENV=="development" ? process.env.DEV_API_URL : process.env.DEV_API_URL;
 
 // Serve your static HTML and JavaScript files
-app.use(express.static('public'));
 
 
 // Define a route to handle the button click and fetch data

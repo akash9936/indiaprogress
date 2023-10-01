@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const farmersMarketHubfilterButton = document.getElementById('farmersMarketHubfilterButton');
     projectButton.addEventListener('click', () => {
         const url='https://indiaprogress.onrender.com/getProjectData';
-        
+   // const url='http://localhost:4000/getProjectData';
+  
         // Make an HTTP GET request to your Node.js server
         fetch(url) // Assuming this route is defined in your server.js
             .then(response => response.json())

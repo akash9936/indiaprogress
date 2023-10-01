@@ -73,6 +73,5 @@ app.get('/farmersMarketHub', async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-    console.log("Base URL is "+Url)
     console.log(`Server is listening on port ${port}`);
 });
