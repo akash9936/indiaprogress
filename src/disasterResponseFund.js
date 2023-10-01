@@ -47,6 +47,58 @@ app.get('/getProjectData', async (req, res) => {
     }
 });
 
+app.get('/farmersMarketHub', async (req, res) => {
+    try {
+
+        const stateFilter = req?.query?.state;
+        const districtFilter = req?.query?.district;
+        const commodityFilter = req?.query?.commodity;
+        const marketFilter = req?.query?.market;
+        let updatedUrl = null
+        let page = parseInt(req.query.page) || 1;
+        // Current page number, default is 1
+        let pageSize = parseInt(req.query.pageSize) || 10;
+        let offset = (page - 1) * pageSize;
+      //  page = pageSize * 10; // Number of items per page, default is 10
+        updatedUrl = Url + `&offset=${offset}&limit=${pageSize}`;
+        if (stateFilter) {
+            updatedUrl = `${updatedUrl}&filters%5Bstate%5D=${stateFilter}`;
+        }
+        if (districtFilter) {
+            updatedUrl = `${updatedUrl}&filters%5Bdistrict%5D=${String(districtFilter)}`;
+        }
+        if (commodityFilter) {
+            updatedUrl = `${updatedUrl}&filters%5Bcommodity%5D=${String(commodityFilter)}`;
+        }
+        if (marketFilter) {
+            updatedUrl = `${updatedUrl}&filters%5Bmarket%5D=${String(marketFilter)}`;
+        }
+       
+        // Set up the headers for the request
+        const headers = {
+            'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8',
+            'Connection': 'keep-alive',
+            // ... (other headers)
+        };
+
+        // Make the API request using the fetch API
+        const response = await fetch(updatedUrl, { headers });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        //     const data = JSON.parse(data);
+        const data = await response.json();
+
+        // Send the API response data as JSON
+        res.json(data);
+    } catch (error) {
+        // Handle errors and send an error response
+        console.error('Error:', error);
+        res.status(500).json({ error: 'An error occurred while fetching data.' });
+    }
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
