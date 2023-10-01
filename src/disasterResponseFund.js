@@ -9,7 +9,7 @@ dotenv.config();
 // Rest of your code remains the same
 
 const app = express();
-const port = process.env.DEV_API_URL || 4000;
+const port = 4000;
 app.use(cors());
 // Set up your API endpoint URL
 const govtUrl = process.env.GOVT_URL;
