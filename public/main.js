@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const farmersMarketHubfilterButton = document.getElementById('farmersMarketHubfilterButton');
     projectButton.addEventListener('click', () => {
         const url='https://indiaprogress.onrender.com/getProjectData';
-   // const url='http://localhost:4000/getProjectData';
+    //const url='http://localhost:4000/getProjectData';
   
         // Make an HTTP GET request to your Node.js server
-        fetch(`https://indiaprogress.onrender.com/getProjectData`) // Assuming this route is defined in your server.js
+        fetch(url) // Assuming this route is defined in your server.js
             .then(response => response.json())
             .then(data => {
                 // Handle the response data
@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const marketFilter = document.getElementById('marketFilter').value;
         
         let apiUrl = `https://indiaprogress.onrender.com/farmersMarketHub?page=${currentPage}`;
+     //   let apiUrl = `http://localhost:2000/farmersMarketHub?page=${currentPage}`;
 
         // Add stateFilter to the URL if it's provided
         if (stateFilter) {

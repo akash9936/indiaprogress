@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 //const port = process.env.DEV_API_URL || 3000;
-const port = 4000;
+const port = 2000;
 // Set up your API endpoint URL
 let Url = process.env.farmersMarketHub_URL;
 //const baseUrl= process.env.NODE_ENV=="development" ? process.env.DEV_API_URL : process.env.DEV_API_URL;
