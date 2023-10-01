@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
    // const url='http://localhost:4000/getProjectData';
   
         // Make an HTTP GET request to your Node.js server
-        fetch('https://indiaprogress.onrender.com/getProjectData') // Assuming this route is defined in your server.js
+        fetch(`https://indiaprogress.onrender.com/getProjectData`) // Assuming this route is defined in your server.js
             .then(response => response.json())
             .then(data => {
                 // Handle the response data
