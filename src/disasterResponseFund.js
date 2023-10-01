@@ -10,11 +10,12 @@ dotenv.config();
 
 const app = express();
 const port = 4000;
-app.use(cors());
+
 // Set up your API endpoint URL
 const govtUrl = process.env.GOVT_URL;
  //const baseUrl= process.env.NODE_ENV=="development" ? process.env.DEV_API_URL : process.env.DEV_API_URL;
-
+ app.use(express.static('public'));
+ app.use(cors());
 // Serve your static HTML and JavaScript files
 
 
