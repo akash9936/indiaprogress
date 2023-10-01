@@ -10,14 +10,14 @@ dotenv.config();
 
 const app = express();
 const port = process.env.DEV_API_URL || 4000;
-
+app.use(cors());
 // Set up your API endpoint URL
 const govtUrl = process.env.GOVT_URL;
  //const baseUrl= process.env.NODE_ENV=="development" ? process.env.DEV_API_URL : process.env.DEV_API_URL;
 
 // Serve your static HTML and JavaScript files
 app.use(express.static('public'));
-app.use(cors());
+
 
 // Define a route to handle the button click and fetch data
 app.get('/getProjectData', async (req, res) => {
