@@ -1,3 +1,5 @@
+//https://data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi#api
+
 const express = require('express');
 const fetch = require('node-fetch');
 const cors = require('cors');
@@ -23,6 +25,7 @@ app.get('/farmersMarketHub', async (req, res) => {
         const stateFilter = req?.query?.state;
         const districtFilter = req?.query?.district;
         const commodityFilter = req?.query?.commodity;
+        const marketFilter = req?.query?.market;
         let updatedUrl = null
         let page = parseInt(req.query.page) || 1;
         // Current page number, default is 1
@@ -38,6 +41,9 @@ app.get('/farmersMarketHub', async (req, res) => {
         }
         if (commodityFilter) {
             updatedUrl = `${updatedUrl}&filters%5Bcommodity%5D=${String(commodityFilter)}`;
+        }
+        if (marketFilter) {
+            updatedUrl = `${updatedUrl}&filters%5Bmarket%5D=${String(marketFilter)}`;
         }
        
         // Set up the headers for the request
@@ -67,5 +73,6 @@ app.get('/farmersMarketHub', async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
+    console.log("Base URL is "+Url)
     console.log(`Server is listening on port ${port}`);
 });

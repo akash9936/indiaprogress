@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const stateFilter = document.getElementById('stateFilter').value;
         const districtFilter = document.getElementById('districtFilter').value;
         const commodityFilter = document.getElementById('commodityFilter').value;
+        const marketFilter = document.getElementById('marketFilter').value;
         
         let apiUrl = `http://localhost:2000/farmersMarketHub?page=${currentPage}`;
 
@@ -54,6 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (commodityFilter) {
             apiUrl += `&commodity=${commodityFilter}`;
+        }
+
+        if (marketFilter) {
+            apiUrl += `&market=${marketFilter}`;
         }
         // Handle the API call and data display
         fetch(apiUrl)
