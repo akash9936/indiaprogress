@@ -7,10 +7,14 @@
   "scripts": {
     "build": "webpack --mode production",
     "test": "npm run test",
-    "start": "npm-run-all --parallel script1 script2",
+    "start": "npm-run-all --parallel prodScript1 prodScript2",
+    "startKarma": "npm-run-all --parallel  devScript2",
     "debug": "node --inspect-brk ./public/main.js",
-    "script1": "NODE_ENV=development node -r esm ./src/farmersMarketHub.js",
-    "script2": "NODE_ENV=development node -r esm ./src/disasterResponseFund.js"
+    "devScript1": "NODE_ENV=development node -r esm ./src/farmersMarketHub.js",
+    "devScript2": "NODE_ENV=development node -r esm ./src/disasterResponseFund.js",
+    "prodScript1": "NODE_ENV=production node -r esm ./src/farmersMarketHub.js",
+    "prodScript2": "NODE_ENV=production node -r esm ./src/disasterResponseFund.js",
+    "devScript3": "NODE_ENV=production node -r esm ./utills/server.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +26,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "mongodb": "^6.2.0",
+    "mongoose": "^5.9.25",
     "node-fetch": "^2.7.0"
   },
   "devDependencies": {

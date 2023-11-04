@@ -5,7 +5,7 @@ function App() {
 
   const handleButtonClick = () => {
     // Make an API call here, for example using fetch
-    fetch('/getProjectData')
+    fetch('/disasterResponseFund')
       .then((response) => response.json())
       .then((data) => {
         // Handle the response data
