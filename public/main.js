@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const projectButton = document.getElementById('projectButton');
     const projectDataDiv = document.getElementById('projectData');
@@ -12,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const farmersMarketHubdataTableBody = document.querySelector('#farmersMarketHubdataTable tbody');
     const farmersMarketHubfilterButton = document.getElementById('farmersMarketHubfilterButton');
     projectButton.addEventListener('click', () => {
-        const url='https://indiaprogress.onrender.com/getProjectData';
-    //const url='http://localhost:4000/getProjectData';
-  
+    const url='https://indiaprogress.onrender.com/disasterResponseFund';
+    //const url='http://localhost:54321/disasterResponseFund';
+   // const url = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API_URL_PROD : process.env.REACT_APP_API_URL_DEV;
         // Make an HTTP GET request to your Node.js server
         fetch(url) // Assuming this route is defined in your server.js
             .then(response => response.json())
