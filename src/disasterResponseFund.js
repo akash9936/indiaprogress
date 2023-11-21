@@ -118,7 +118,7 @@ app.get('/farmersMarketHub', async (req, res) => {
     } catch (error) {
         // Handle errors and send an error response
         console.error('Error:', error);
-        res.status(500).json({ error: 'An error occurred while fetching data.' });
+        res.status(500).json({ error: 'An error occurred while fetching dataa.' });
     }
 });
 
